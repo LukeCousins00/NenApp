@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Nen.ViewModels"
+             x:DataType="viewmodel:LoginViewModel"
+             x:Class="Nen.Pages.LoginPage"
+             Title="Nen">
+
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+            <Image Source="nen_logo.png" MaximumHeightRequest="120"/>
+
+            <VerticalStackLayout HorizontalOptions="Center" MinimumWidthRequest="300">
+                <Label Text="Email Address"></Label>
+                <Entry Text="{Binding FirstName}"></Entry>
+
+                <Label Text="Password"></Label>
+                <Entry Text="{Binding LastName}" IsPassword="True" FontSize="10"></Entry>
+            </VerticalStackLayout>
+            
+
+            <VerticalStackLayout Spacing="10">
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="5" MaximumWidthRequest="300">
+                    <Button
+                    Text="Login"
+                    WidthRequest="140"
+                    Command="{Binding LoginAttemptCommand}">
+                    </Button>
+
+                    <Button
+                    Text="Sign Up"
+                    WidthRequest="140">
+                    </Button>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Label 
+                    Text="Or login with">
+                </Label>
+
+                <Button 
+                    BackgroundColor="Black"
+                    ImageSource="google_logo.png"
+                    WidthRequest="50"
+                    Padding="0"
+                    ContentLayout="{OnPlatform Default='Left, 0', iOS='Left, 0', MacCatalyst='Left, 0'}"
+                    Command="{Binding GoogleLoginAttemptCommand}">
+                </Button>
+            </VerticalStackLayout>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
